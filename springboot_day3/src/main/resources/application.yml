@@ -1,0 +1,31 @@
+server:
+  port: 8989
+  context-path: /springboot_day3
+
+  #热部署 修改jsp页面 不需要重新启动项目
+  jsp-servlet:
+    init-parameters:
+      developmonet: true
+    #jsp 视图解析器
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+    #配置数据源
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: hr
+    password: hr
+    url: jdbc:oracle:thin:@localhost:1521:XE
+  #乱码
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+
+    #mapper 文件的位置  别名
+mybatis:
+  type-aliases-package: com.baizhi.entity
+  mapper-locations: classpath:/com/baizhi/mapper/*Mapper.xml
